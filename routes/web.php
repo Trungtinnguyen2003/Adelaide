@@ -43,7 +43,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/hotel', [HotelController::class, 'index'])->name('hotel');
+Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
+
 
 
 // Route::get('/hotel', [HotelController::class, 'getAllHotels']);

@@ -180,6 +180,39 @@
     <!-- Rooms Section Begin -->
     <section class="rooms-section spad">
         <div class="container">
+            <!-- Filter Form -->
+           <!-- Filter Form -->
+<form action="{{ route('hotel.index') }}" method="GET" class="filter-form mb-4">
+    <div class="row align-items-center">
+        <div class="col-md-3 mb-2">
+            <input type="text" name="name" class="form-control" placeholder="Hotel Name" value="{{ request('name') }}">
+        </div>
+        <div class="col-md-2 mb-2">
+            <select name="rating" class="form-control">
+                <option value="">Rating</option>
+                <option value="1" {{ request('rating') == 1 ? 'selected' : '' }}>1 star</option>
+                <option value="2" {{ request('rating') == 2 ? 'selected' : '' }}>2 star</option>
+                <option value="3" {{ request('rating') == 3 ? 'selected' : '' }}>3 star</option>
+                <option value="4" {{ request('rating') == 4 ? 'selected' : '' }}>4 star</option>
+                <option value="5" {{ request('rating') == 5 ? 'selected' : '' }}>5 star</option>
+            </select>
+        </div>
+        <div class="col-md-2 mb-2">
+            <input type="number" name="price_min" class="form-control" placeholder="lowest price" value="{{ request('price_min') }}">
+        </div>
+        <div class="col-md-2 mb-2">
+            <input type="number" name="price_max" class="form-control" placeholder="highest price" value="{{ request('price_max') }}">
+        </div>
+        <div class="col-md-2 mb-2">
+            <input type="text" name="amenities" class="form-control" placeholder="convenience" value="{{ request('amenities') }}">
+        </div>
+        <div class="col-md-1 mb-2">
+            <button type="submit" class="btn btn-primary w-100">refine</button>
+        </div>
+    </div>
+</form>
+
+
             <div class="row">
                 @foreach ($hotels as $hotel)
                     <div class="col-lg-4 col-md-6">
@@ -210,11 +243,11 @@
                                 </table>
                                 <a href="#" class="primary-btn">More Details</a>
                             </div>
-
                         </div>
                     </div>
                 @endforeach
             </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="room-pagination">
